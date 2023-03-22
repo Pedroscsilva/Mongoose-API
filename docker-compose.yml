@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  # Serviço que irá rodar o node
+  app-car-shop:
+    # Nome do container para facilitar execução
+    container_name: car_shop
+    # Caminho da Dockerfile
+    build: .
+    # Restarta a imagem caso algo a faça parar
+    restart: always
+    # Lista de volumes (diretórios) mapeados de fora para dentro do container
+    volumes:
+      # Monta o diretório src, com todos o código do projeto, 
+      # dentro do diretório /app/src do container
+      - ./src:/app/src
+    # Lista de serviços do qual este serviço depende
+    depends_on:
+      # Precisa do mongo funcionando antes de subir o node
+      - mongodb
+    # Lista de portas mapeadas de dentro para fora do container
+    # na notação porta_de_fora:porta_de_dentro
+    ports:
+      # Expõe a porta padrão da aplicação: altere aqui caso use outra porta
+      - 3001:3001
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/CarShop
+
+  # Serviço que irá rodar o mongodb
+  mongodb:
+    container_name: car_shop_db
+    image: mongo:5.0.7
+    restart: always
+    ports:
+      # Garanta que não haverá conflitos de porta com um mongodb que esteja
+      # rodando localmente
+      - 27017:27017
