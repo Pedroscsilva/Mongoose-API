@@ -1,6 +1,6 @@
-import Car from "../Domains/Car";
-import ICar from "../Interfaces/ICar";
-import CarODM from "../Models/CarODM";
+import Car from '../Domains/Car';
+import ICar from '../Interfaces/ICar';
+import CarODM from '../Models/CarODM';
 
 export default class CarService {
   private carODM: CarODM;

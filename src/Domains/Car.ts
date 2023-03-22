@@ -1,4 +1,4 @@
-import ICar from "../Interfaces/ICar";
+import ICar from '../Interfaces/ICar';
 
 export default class Car {
   protected id?: string;

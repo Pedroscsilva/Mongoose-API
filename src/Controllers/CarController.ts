@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response } from "express";
+import { NextFunction, Request, Response } from 'express';
 // import ICar from "../Interfaces/ICar";
-import CarService from "../Services/CarService";
+import CarService from '../Services/CarService';
 
 export default class CarController {
   private service: CarService;
