@@ -1,7 +1,9 @@
 import IMotorcycle from '../../src/Interfaces/IMotorcycle';
 
+const CG_TITAN = 'Honda CG Titan 125';
+
 export const validMotorcycle: IMotorcycle = {
-  model: 'Honda CG Titan 125',
+  model: CG_TITAN,
   year: 1983,
   color: 'Red',
   buyValue: 1000,
@@ -9,24 +11,35 @@ export const validMotorcycle: IMotorcycle = {
   engineCapacity: 125,
 };
 
-export const validMotorcycleWithStatus: IMotorcycle = {
-  model: 'Honda CG Titan 125',
+export const validMotorcycleWithId: IMotorcycle = {
+  model: CG_TITAN,
   year: 1983,
   color: 'Red',
-  status: true,
   buyValue: 1000,
   category: 'Street',
   engineCapacity: 125,
+  status: false,
+  id: '6348513f34c397abcad040b2',
 };
 
-export const updatedMotorcycle: IMotorcycle = {
-  model: 'Honda CG Titan 150',
-  year: 2020,
+export const toUpdateValidMotorcycle: IMotorcycle = {
+  model: CG_TITAN,
+  year: 1983,
   color: 'Black',
-  status: true,
-  buyValue: 8.200,
+  buyValue: 1000,
   category: 'Street',
-  engineCapacity: 150,
+  engineCapacity: 125,
+};
+
+export const updatedValidMotorcycleWithId: IMotorcycle = {
+  model: CG_TITAN,
+  year: 1983,
+  color: 'Red',
+  buyValue: 1000,
+  category: 'Street',
+  engineCapacity: 125,
+  status: false,
+  id: '6348513f34c397abcad040b2',
 };
 
 export const motorcyclesArray: IMotorcycle[] = [

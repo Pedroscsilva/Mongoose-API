@@ -10,8 +10,7 @@ export default class MotorcycleService {
     this.motorcycleODM = motorcycleODM;
   }
 
-  private createMotorcycleDomain(motorcycle: IMotorcycle | null) {
-    if (!motorcycle) return null;
+  private createMotorcycleDomain(motorcycle: IMotorcycle) {
     return new Motorcycle(motorcycle);
   }
 
@@ -31,7 +30,7 @@ export default class MotorcycleService {
 
   public async findById(id: string) {
     const motorcycle = await this.motorcycleODM.findById(id);
-    if (motorcycle.length === 0) throw new ErrorWithStatus('Motorcycle not found', 404);
+    if (!motorcycle.length || !motorcycle) throw new ErrorWithStatus('Motorcycle not found', 404);
     return this.createMotorcycleDomain(motorcycle[0]);
   }
 
