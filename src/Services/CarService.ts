@@ -10,8 +10,7 @@ export default class CarService {
     this.carODM = carODM;
   }
 
-  private createCarDomain(car: ICar | null) {
-    if (!car) return null;
+  private createCarDomain(car: ICar) {
     return new Car(car);
   }
 
@@ -31,7 +30,7 @@ export default class CarService {
 
   public async findById(id: string) {
     const car = await this.carODM.findById(id);
-    if (car.length === 0) throw new ErrorWithStatus('Car not found', 404);
+    if (!car.length || !car) throw new ErrorWithStatus('Car not found', 404);
     return this.createCarDomain(car[0]);
   }
 

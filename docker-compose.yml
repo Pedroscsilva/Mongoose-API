@@ -14,6 +14,7 @@ services:
       # Monta o diretório src, com todos o código do projeto, 
       # dentro do diretório /app/src do container
       - ./src:/app/src
+      - ./tests:/app/tests
     # Lista de serviços do qual este serviço depende
     depends_on:
       # Precisa do mongo funcionando antes de subir o node
@@ -25,6 +26,7 @@ services:
       - 3001:3001
     environment:
       - MONGO_URI=mongodb://mongodb:27017/CarShop
+    user: root
 
   # Serviço que irá rodar o mongodb
   mongodb:

@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import { isValidObjectId } from 'mongoose';
 
 class IdChecker {
   public static checkIdFormat(
@@ -6,8 +7,7 @@ class IdChecker {
     res: Response,
     next: NextFunction,
   ) {
-    const mongoRegex = /^[a-f\d]{24}$/i;
-    if (!mongoRegex.test(req.params.id)) {
+    if (!isValidObjectId(req.params.id)) {
       return res.status(422).json({ message: 'Invalid mongo id' });
     }
     next();
