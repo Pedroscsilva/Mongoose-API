@@ -1,8 +1,8 @@
 import ICar from '../Interfaces/ICar';
 import CarODM from '../Models/CarODM';
-import AbstratctService from './AbstractService';
+import AbstractService from './AbstractService';
 
-export default class CarService extends AbstratctService<ICar> {
+export default class CarService extends AbstractService<ICar> {
   constructor(carODM: CarODM) {
     super(carODM, 'Car');
   }

@@ -2,7 +2,7 @@ import AbstractODM from '../Models/AbstractODM';
 import ErrorWithStatus from '../Utils/ErrorWithStatus';
 import VehicleFactory from '../Utils/VehicleFactory';
 
-export default class AbstratctService<I> {
+export default class AbstractService<I> {
   private ODM: AbstractODM<I>;
   private serviceType: 'Car' | 'Motorcycle';
 
