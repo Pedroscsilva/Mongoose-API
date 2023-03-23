@@ -34,4 +34,12 @@ export default class CarService {
     if (car.length === 0) throw new ErrorWithStatus('Car not found', 404);
     return this.createCarDomain(car[0]);
   }
+
+  public async update(id: string, updateBody: ICar) {
+    await this.carODM.update(id, updateBody);
+    const car = await this.carODM.findById(id);
+    if (car.length === 0) throw new ErrorWithStatus('Car not found', 404);
+    const singleCar = car[0];
+    return this.createCarDomain(singleCar);
+  }
 }

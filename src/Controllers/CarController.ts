@@ -1,5 +1,4 @@
 import { NextFunction, Request, Response } from 'express';
-// import ICar from "../Interfaces/ICar";
 import CarService from '../Services/CarService';
 
 export default class CarController {
@@ -31,6 +30,15 @@ export default class CarController {
     try {
       const allCars = await this.service.findById(req.params.id);
       return res.status(200).json(allCars);
+    } catch (error) {
+      next(error);
+    }
+  }
+
+  public async update(req: Request, res: Response, next: NextFunction) {
+    try {
+      const updatedCar = await this.service.update(req.params.id, req.body);
+      return res.status(200).json(updatedCar);
     } catch (error) {
       next(error);
     }

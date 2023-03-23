@@ -26,4 +26,10 @@ routes.get(
   (req, res, next) => controller.findAll(req, res, next),
 );
 
+routes.put(
+  '/cars/:id',
+  (req, res, next) => IdChecker.checkIdFormat(req, res, next),
+  (req, res, next) => controller.update(req, res, next),
+);
+
 export default routes;
