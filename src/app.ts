@@ -1,10 +1,11 @@
 import express from 'express';
 import ErrorHandler from './Middlewares/ErrorHandler';
-import carRoutes from './Routes';
+import routes from './Routes';
 
 const app = express();
 app.use(express.json());
-app.use(carRoutes);
+app.use(routes.carRoutes);
+app.use(routes.motorcycleRoutes);
 app.use(ErrorHandler.handle);
 
 export default app;
