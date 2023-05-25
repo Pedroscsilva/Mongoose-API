@@ -1,7 +1,7 @@
 
-# Mongoose Typescript Express API
+# Mongoose Typescript CRUD API
 
-This is an Express API built with Mongoose and incorporates a significant amount of abstraction. One of the aspects that brings me the most satisfaction is the project's highly scalable nature, achieved through the abstraction implemented in all layers.
+This is an Express CRUD API built with Mongoose and incorporates a significant amount of abstraction. One of the aspects that brings me the most satisfaction is the project's highly scalable nature, achieved through the abstraction implemented in all layers.
 
 In addition to the implementation, I have developed comprehensive unit tests using Chai, Jest, and Sinon specifically for the service layer of the API. These tests ensure the reliability and correctness of the functionality.
 
